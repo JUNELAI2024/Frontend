@@ -1,0 +1,61 @@
+<header role="banner">
+	<hgroup>
+		<h1>Formatting Telephone Numbers</h1>
+		<h2>Using Regular Expressions in Javascript</h2>
+	</hgroup>
+</header>
+
+<main role="main">
+	<section id="overview">
+		<h3>Overview</h3>
+		<h4>Formatting United States Telephone Numbers in Javascript</h4>
+		<p>Format local phones using regular expression:</p>
+		
+		<div class="format-demo-card">
+			<h5>Unformatted:</h5>
+			<samp class="unformatted" id="unformatted-example-one">1234567890</samp>
+			
+			<h5>Formatted:</h5>
+			<samp class="formatted" id="formatted-example-one"></samp>
+			
+			<hr>
+			<h6>Javascript Formatting Code:</h6>
+			<div class="code-snippet"><pre><code class="javascript">{FORMATTED-NUMBER} = {UNFORMATTED-NUMBER}.replace(/(\d{3})(\d{3})(\d+)/g, &quot;($1) $2-$3&quot;);</code></pre></div>
+		</div>
+		
+		
+	</section>
+
+	<section id="demo">
+		<h3>Demo</h3>
+		
+		<!-- example... -->
+		
+		
+		<label for="phone-input">Unformatted Phone Number:</label>
+		<input type="tel" id="phone-input" name="phone-input" placeholder="##########" maxlength="10" >
+		<div id="formatted-result">
+			<samp id="formatted-output">...</samp>
+		</div>
+		<button type="button" class="demo-button" id="format-btn">Format Number</button>
+		
+	</section>
+
+	<section id="source-code">
+		<h3>Source Code</h3>
+		<pre><code class="javascript">&quot;1234567890&quot;.replace(/(\d{3})(\d{3})(\d+)/g, "($1) $2-$3");
+// ... =&gt; (123) 456-7890
+
+// Format long distance phones using regular expression.
+// Assumes 1 is hardcoded and not stored with value:
+&quot;1234567890&quot;.replace(/(\d{3})(\d{3})(\d+)/g, &quot;1-$1-$2-$3&quot;);
+
+// Format long distance phones using regular expression.
+// Assumes 1 is stored with value:
+&quot;11234567890&quot;.replace(/(\d{1})(\d{3})(\d{3})(\d+)/g, &quot;$1-$2-$3-$4&quot;);</code></pre>
+	</section>
+</main>
+
+<footer role="contentinfo">
+	<p>Copyright &copy; 2020. All Rights Reserved</p>
+</footer>

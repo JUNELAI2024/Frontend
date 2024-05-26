@@ -1,16 +1,17 @@
-import React, {usestate} from "react";
+import React from "react";
 
 function Clickcounter() {
 
-    const [count,updateCount] = usestate(0);
+    const unformattedNumber = "1234567890";
+   
 
-    function clickhandler() {
-        updateCount(count +1);
+    function formatted() {
+        formattedphoneno= unformattedNumber.replace(/(\d{3})(\d{3})(\d+)/g, "($1) $2-$3");
     }
     return (
         <div>
-            <button onClick={clickHandler}>Click Me</button>
-            <p>you have to click {count} times</p>
+            <button onClick={formatted}>Contact Us</button>
+            <p> Pls contact us at {formattedphoneno} </p>
         </div>
     );
 }

@@ -1,60 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jersey+25+Charted&display=swap" rel="stylesheet">
-   
-    <title>Flexbox</title>
-
-    <link rel="stylesheet" href="css/flexbox.css">
-
-    <style> 
-        h1{color:black; font-size: 70px;}
-        button{color:khaki;
-            background-color: black;
-            padding: 40px;height:500px}
-            img {border-radius: 60%;
-                height: 150px;
-                width:150px;}
-
-                .jersey-25-charted-regular {
-  font-family: "Jersey 25 Charted", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-                #myID {background-color:gold;color:black}
-                </style>
+  <title>The Little Prince Quotes</title>
+  <style> body { background-color: yellow; } </style> 
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
-    <head>
+    <img src="https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2015/4/30/1430408427823/Le-Petit-Prince-007.jpg?width=620&dpr=2&s=none" alt="The Little Prince" /> 
+  <div id="root"></div>
+  <style>
+    body {
+      background-color: yellow;
+      font-family: "Cinzel", serif;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333;
+    }
 
-    <img src="data:image/png;base64,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" alt="">
-    <h1 class="jersey-25-charted-regular">Keep SMILE</h1>
-<nav>
-    <div>
-        <button>HOME</button>
-        <button id="myID">TELL ME MORE</button>
-        <button>CONTACT US</button>
+    h3 {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-family: "Playfair Display", serif;
+    }
 
-    </div>
-</nav>
-    
-    <h2>"All grown-ups were once children... but only few of them remember it." (The Little Prince)</h2>
+    p {
+      font-style: italic;
+      margin-bottom: 20px;
+      font-family: "EB Garamond", serif;
+    }
 
-    <p>"Smiling is definitely one of the best beauty remedies. If you have a good sense of humor and a good approach to life, that’s beautiful."<br>Rashida Jones</p>
-<br>
-<br>
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "Montserrat", sans-serif;
+    }
 
-<a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz5NjPuNbZZFol5FkuC8uNOu1vXgVAA5zEiPCmvo__IeNhEBULbQOT5mt7AGgy9tHYRL8&usqp=CAU/" target="_blank">Click ME</a>
-<br>
-<br>
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+  <script type="text/babel">
+    const itemList = [
+      { id: 1, title: '1', description: 'You become responsible, forever, for what you have tamed.' },
+      { id: 2, title: '2', description: 'But the conceited man did not hear him. Conceited people never hear anything but praise.' },
+      { id: 3, title: '3', description: 'Well, I must endure the presence of a few caterpillars if I wish to become acquainted with the butterflies.' },
+      { id: 4, title: '4', description: 'Where are the people?” resumed the little prince at last. “It’s a little lonely in the desert…” “It is lonely when you’re among people, too,” said the snake.' },
+      { id: 5, title: '5', description: 'A rock pile ceases to be a rock pile the moment a single man contemplates it, bearing within him the image of a cathedral.' },
+      { id: 6, title: '6', description: 'When someone blushes, doesn’t that mean ‘yes’?' },
+      { id: 7, title: '7', description: 'I have lived a great deal among grown-ups. I have seen them intimately, close at hand. And that hasn’t much improved my opinion of them.' },
+      { id: 8, title: '8', description: 'Only the children know what they are looking for.' },
+      { id: 9, title: '9', description: 'But the eyes are blind. One must look with the heart.' },
+      { id: 10, title: '10', description: 'All men have stars, but they are not the same things for different people. For some, who are travelers, the stars are guides. For others they are no more than little lights in the sky. For others, who are scholars, they are problems... But all these stars are silent. You-You alone will have stars as no one else has them.' },
+      { id: 11, title: '11', description: 'And now here is my secret, a very simple secret: It is only with the heart that one can see rightly; what is essential is invisible to the eye.' },
+      { id: 12, title: '12', description: 'It is much more difficult to judge oneself than to judge others. If you succeed in judging yourself rightly, then you are indeed a man of true wisdom.' },
+      { id: 13, title: '13', description: 'All grown-ups were once children... but only few of them remember it.' },
+      { id: 14, title: '14', description: 'It is the time you have wasted for your rose that makes your rose so important.' },
+      { id: 15, title: '15', description: 'I am who I am and I have the need to be.' }
+    ];
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtds5d7wsH2ra4Vl7PWaJ4o-uQ5bMaJPO7-TfQaxPJRQ&s" />
+    const ItemList = () => {
+      const [displayedItems, setDisplayedItems] = React.useState(itemList.slice(0, 5));
+      const [currentIndex, setCurrentIndex] = React.useState(5);
 
-</head>
+      const handleShowMoreClick = () => {
+        setDisplayedItems([...displayedItems, ...itemList.slice(currentIndex, currentIndex + 5)]);
+        setCurrentIndex(currentIndex + 5);
+      };
+
+      return (
+        <div>
+          {displayedItems.map((item) => (
+            <div key={item.id}>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+          ))}
+          {currentIndex < itemList.length && (
+            <button onClick={handleShowMoreClick}>Show More</button>
+          )}
+        </div>
+      );
+      
+    };
+
+    ReactDOM.render(<ItemList />, document.getElementById('root'));
+  </script>
 </body>
 </html>
